@@ -2,6 +2,13 @@
 #include <vector>
 
 /**
+ * @namespace array
+ * @brief 盛最多水的容器
+ */
+
+namespace algo {
+namespace array {
+/**
  * @brief 盛最多水的容器
  *
  * @details
@@ -11,6 +18,7 @@
  * 说明：你不能倾斜容器。
  *
  * @par 示例
+ *
  * 输入：[1,8,6,2,5,4,8,3,7]
  * 输出：49
  * 解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。
@@ -21,10 +29,11 @@
  * @see [leetcode-11](https://leetcode.cn/problems/container-with-most-water)
  */
 
-namespace algo {
-namespace array {
 class MaxArea {
  public:
+  /**
+   *  @ingroup two-pointers
+   */
   int maxArea(std::vector<int>& height) {
     int res = 0;
     int left = 0, right = height.size() - 1;

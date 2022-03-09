@@ -3,6 +3,14 @@
 #include <vector>
 
 /**
+ * @namespace array
+ * @brief 搜索插入位置
+ */
+
+namespace algo {
+namespace array {
+
+/**
  * @brief 搜索插入位置
  *
  * @details
@@ -10,6 +18,7 @@
  * 请必须使用时间复杂度为 O(log n) 的算法。
  *
  * @par 示例
+ *
  * 输入: nums = [1,3,5,6], target = 5
  * 输出: 2
  *
@@ -22,14 +31,15 @@
  * @see [leetcode-704](https://leetcode.cn/problems/binary-search/)
  */
 
-namespace algo {
-namespace array {
 class SearchInsertPosition {
  public:
   int searchInsert1(std::vector<int>& nums, int target) {
     return std::lower_bound(nums.begin(), nums.end(), target) - nums.begin();
   }
 
+  /**
+   * @ingroup binary-search
+   */
   int searchInsert2(std::vector<int>& nums, int target) {
     int left = 0, right = nums.size();
 

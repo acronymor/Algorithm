@@ -37,6 +37,18 @@ function clone() {
   # run_cmd "${cmd}"
 }
 
+
+function doc() {
+  local cmd="cd ${bin}"
+  run_cmd "${cmd}"
+
+  cmd="rm -rf ${bin}/doc"
+  run_cmd "${cmd}"
+
+  cmd="doxygen ${bin}/doxygen.ini"
+  run_cmd "${cmd}"
+}
+
 ################################################
 
 algo_build_parallel=8

@@ -2,6 +2,12 @@
 #include <vector>
 
 /**
+ * @namespace array
+ * @brief 二分查找
+ */
+namespace algo {
+namespace array {
+/**
  * @brief 二分查找
  *
  * @details
@@ -9,6 +15,7 @@
  * target，如果目标值存在返回下标，否则返回 -1。
  *
  * @par 示例
+ *
  * 输入: nums = [-1,0,3,5,9,12], target = 9
  * 输出: 4
  * 解释: 9 出现在 nums 中并且下标为 4
@@ -17,13 +24,16 @@
  * 输出: -1
  * 解释: 2 不存在 nums 中因此返回 -1
  *
- * @see [leetcode-704](https://leetcode.cn/problems/binary-search/)
+ * @see
+ *
+ * [leetcode-704](https://leetcode.cn/problems/binary-search/)
  */
 
-namespace algo {
-namespace array {
 class BinarySearch {
  public:
+  /**
+   * @ingroup binary-search
+   */
   int search1(std::vector<int>& nums, int target) {
     int left = 0, right = nums.size();
     while (left < right) {
@@ -39,6 +49,9 @@ class BinarySearch {
     return -1;
   }
 
+  /**
+   * @ingroup binary-search
+   */
   int search2(std::vector<int>& nums, int target) {
     int left = 0, right = nums.size() - 1;
     while (left <= right) {

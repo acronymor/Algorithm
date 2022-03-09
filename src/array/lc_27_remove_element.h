@@ -2,6 +2,14 @@
 #include <vector>
 
 /**
+ * @namespace array
+ * @brief 移除元素
+ */
+
+namespace algo {
+namespace array {
+
+/**
  * @brief 移除元素
  *
  * @details
@@ -10,6 +18,7 @@
  * 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
  *
  * @par 示例
+ *
  * 输入: nums = [3,2,2,3], val = 3
  * 输出: 2, nums = [2,2]
  * 解释: 函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。
@@ -24,8 +33,6 @@
  * @see [leetcode-27](https://leetcode.cn/problems/remove-element/)
  */
 
-namespace algo {
-namespace array {
 class RemoveElement {
  public:
   int removeElement(std::vector<int>& nums, int value) {

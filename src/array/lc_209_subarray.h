@@ -3,6 +3,14 @@
 #include <vector>
 
 /**
+ * @namespace array
+ * @brief 长度最小的子数组
+ */
+
+namespace algo {
+namespace array {
+
+/**
  * @brief 长度最小的子数组
  *
  * @details
@@ -11,6 +19,7 @@
  * 并返回其长度。如果不存在符合条件的子数组，返回 0 。
  *
  * @par 示例
+ *
  * 输入：target = 7, nums = [2,3,1,2,4,3]
  * 输出：2
  * 解释：子数组 [4,3] 是该条件下的长度最小的子数组。
@@ -24,8 +33,6 @@
  * @see [leetcode-209](https://leetcode.cn/problems/minimum-size-subarray-sum/)
  */
 
-namespace algo {
-namespace array {
 class MinSubArrayLen {
  public:
   // overtime
@@ -44,6 +51,9 @@ class MinSubArrayLen {
     return res == std::numeric_limits<int>::max() ? 0 : res;
   }
 
+  /**
+   * @ingroup sliding-window
+   */
   int minSubArrayLen2(std::vector<int>& nums, int target) {
     int res = std::numeric_limits<int>::max();
     int sum = 0;

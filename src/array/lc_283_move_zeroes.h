@@ -2,6 +2,14 @@
 #include <vector>
 
 /**
+ * @namespace array
+ * @brief 移动零
+ */
+
+namespace algo {
+namespace array {
+
+/**
  * @brief 移动零
  *
  * @details
@@ -9,6 +17,7 @@
  * 请注意 ，必须在不复制数组的情况下原地对数组进行操作。
  *
  * @par 示例
+ *
  * 输入: nums = [0,1,0,3,12]
  * 输出: [1,3,12,0,0]
  *
@@ -18,8 +27,6 @@
  * @see [leetcode-283](https://leetcode.cn/problems/move-zeroes/)
  */
 
-namespace algo {
-namespace array {
 class MoveZeroes {
  public:
   void moveZeroes(std::vector<int>& nums) {

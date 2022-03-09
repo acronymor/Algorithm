@@ -3,6 +3,14 @@
 #include <vector>
 
 /**
+ * @namespace array
+ * @brief 水果成篮
+ */
+
+namespace algo {
+namespace array {
+
+/**
  * @brief 水果成篮
  *
  * @details
@@ -15,6 +23,7 @@
  * 给你一个整数数组 fruits ，返回你可以收集的水果的 最大 数目。
  *
  * @par 示例
+ *
  * 输入：fruits = [1,2,1]
  * 输出：3
  * 解释：可以采摘全部 3 棵树。
@@ -26,10 +35,12 @@
  *
  * @see [leetcode-904](https://leetcode.cn/problems/fruit-into-baskets)
  */
-namespace algo {
-namespace array {
+
 class TotalFruit {
  public:
+  /**
+   * @ingroup sliding-window
+   */
   int totalFruit(std::vector<int>& fruits) {
     std::unordered_map<int, uint32_t> map;
     int res = 0;
