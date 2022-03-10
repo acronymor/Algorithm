@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <stack>
 #include <vector>
 
 /**
@@ -25,7 +26,8 @@ namespace array {
  * 输出：9
  *
  * @see [leetcode-42](https://leetcode.cn/problems/trapping-rain-water/)
- * https://leetcode.cn/problems/trapping-rain-water/solutions/9112/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-8/
+ * @see
+ * [详细通俗的思路分析，多解法](https://leetcode.cn/problems/trapping-rain-water/solutions/9112/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-8/)
  */
 class TrapWater {
  public:
@@ -110,6 +112,31 @@ class TrapWater {
       if (height[i] < minh) {
         res += (minh - height[i]);
       }
+    }
+
+    return res;
+  }
+
+  /**
+   * @ingroup monotonic-stack
+   */
+  int trap4(std::vector<int>& height) {
+    int res = 0;
+    std::stack<size_t> stacks;
+
+    for (size_t i = 0; i < height.size(); i++) {
+      while (!stacks.empty() && height[i] > height[stacks.top()]) {
+        int mid = stacks.top();
+        stacks.pop();
+
+        if (stacks.empty()) {
+          break;
+        }
+
+        int minh = std::min(height[stacks.top()], height[i]);
+        res += (i - stacks.top() - 1) * (minh - height[mid]);
+      }
+      stacks.push(i);
     }
 
     return res;

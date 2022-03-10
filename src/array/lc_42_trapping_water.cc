@@ -46,5 +46,16 @@ TEST_F(TrapWaterTest, trap3) {
   std::vector<int> nums3 = {2, 0, 2};
   ASSERT_EQ(2, exec->trap3(nums3));
 }
+
+TEST_F(TrapWaterTest, trap4) {
+  std::vector<int> nums1 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+  ASSERT_EQ(6, exec->trap4(nums1));
+
+  std::vector<int> nums2 = {4, 2, 0, 3, 2, 5};
+  ASSERT_EQ(9, exec->trap4(nums2));
+
+  std::vector<int> nums3 = {2, 0, 2};
+  ASSERT_EQ(2, exec->trap4(nums3));
+}
 }  // namespace array
 }  // namespace algo
