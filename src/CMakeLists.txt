@@ -4,7 +4,7 @@ SET(CMAKE_CXX_STANDARD 20)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
 LIST(APPEND test_libraries gtest gtest_main)
-LIST(APPEND algo_folder array)
+LIST(APPEND algo_folder array list)
 
 FOREACH (folder ${algo_folder})
   FILE(GLOB test_srcs ${folder}/*.cc)
