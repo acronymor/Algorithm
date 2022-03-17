@@ -6,5 +6,6 @@ namespace algo {
  * @defgroup two-pointers 双指针
  * @defgroup sliding-window 滑动窗口
  * @defgroup monotonic-stack 单调栈
+ * @defgroup hash-table 哈希表
  */
 }  // namespace algo
