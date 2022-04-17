@@ -7,7 +7,9 @@ namespace algo {
  * @defgroup sliding-window 滑动窗口
  * @defgroup monotonic-stack 单调栈
  * @defgroup stack 栈
+ * @defgroup monotonic-queue 单调队列
  * @defgroup queue 队列
+ * @defgroup heap-priority-queue 优先队列/堆
  * @defgroup hash-table 哈希表
  * @defgroup kmp KMP
  */
