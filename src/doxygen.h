@@ -12,5 +12,7 @@ namespace algo {
  * @defgroup heap-priority-queue 优先队列/堆
  * @defgroup hash-table 哈希表
  * @defgroup kmp KMP
+ * @defgroup bubble-sort 冒泡排序
+ * @defgroup quick-sort 快速排序
  */
 }  // namespace algo
