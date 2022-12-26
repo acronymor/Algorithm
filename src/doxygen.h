@@ -14,5 +14,8 @@ namespace algo {
  * @defgroup kmp KMP
  * @defgroup bubble-sort 冒泡排序
  * @defgroup quick-sort 快速排序
+ * @defgroup selection-sort 选择排序
+ * @defgroup heap-sort 堆排序
+ * @defgroup insert-sort 插入排序
  */
 }  // namespace algo

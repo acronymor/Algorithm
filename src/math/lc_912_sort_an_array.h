@@ -81,6 +81,84 @@ class SortArray {
     nums[start] = pivot;
     return start;
   }
+
+  /**
+   * @ingroup selection-sort
+   */
+  std::vector<int> selectSort(std::vector<int>& nums) {
+    for (size_t i = 0; i < nums.size(); i++) {
+      int minIdx = i;
+      for (size_t j = i + 1; j < nums.size(); j++) {
+        if (nums[j] <= nums[minIdx]) {
+          minIdx = j;
+        }
+      }
+
+      std::swap(nums[i], nums[minIdx]);
+    }
+    return nums;
+  }
+
+  /**
+   * @ingroup heap-sort
+   */
+  std::vector<int> heapSort(std::vector<int>& nums) {
+    if (nums.size() < 2) {
+      return nums;
+    }
+
+    // build heap
+    for (int i = nums.size() - 1; i >= 0; i--) {
+      heapify(nums, nums.size(), i);
+    }
+
+    // adjust heap
+    for (int i = nums.size() - 1; i >= 0; i--) {
+      std::swap(nums[i], nums[0]);
+
+      heapify(nums, i, 0);
+    }
+
+    return nums;
+  }
+
+  void heapify(std::vector<int>& nums, int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < n && nums[left] > nums[largest]) {
+      largest = left;
+    }
+
+    if (right < n && nums[right] > nums[largest]) {
+      largest = right;
+    }
+
+    if (largest != i) {
+      std::swap(nums[largest], nums[i]);
+      heapify(nums, n, largest);
+    }
+  }
+
+  /**
+   * @ingroup insert-sort
+   */
+  std::vector<int> insertSort(std::vector<int>& nums) {
+    for (size_t j = 1; j < nums.size(); j++) {
+      int temp = nums[j];
+      int i = j - 1;
+
+      while (i >= 0 && temp < nums[i]) {
+        nums[i + 1] = nums[i];
+        i--;
+      }
+
+      nums[i + 1] = temp;
+    }
+
+    return nums;
+  }
 };
 }  // namespace math
 }  // namespace algo
