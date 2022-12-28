@@ -17,5 +17,6 @@ namespace algo {
  * @defgroup selection-sort 选择排序
  * @defgroup heap-sort 堆排序
  * @defgroup insert-sort 插入排序
+ * @defgroup backtracking 回溯算法
  */
 }  // namespace algo
