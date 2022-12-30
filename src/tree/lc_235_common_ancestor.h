@@ -42,6 +42,19 @@ class LowestCommonAncestor {
   }
 
   TreeNode<int>* lowestCommonAncestor2(TreeNode<int>* root, TreeNode<int>* p, TreeNode<int>* q) {
+    while (root != nullptr) {
+      if (p->val < root->val && q->val < root->val) {
+        root = root->left;
+      } else if (p->val > root->val && q->val > root->val) {
+        root = root->right;
+      } else {
+        return root;
+      }
+    }
+    return root;
+  }
+
+  TreeNode<int>* lowestCommonAncestor3(TreeNode<int>* root, TreeNode<int>* p, TreeNode<int>* q) {
     if (root == nullptr || root == p || root == q) {
       return root;
     }

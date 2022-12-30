@@ -53,5 +53,31 @@ TEST_F(LowestCommonAncestorTest, lowestCommonAncestor2) {
   ASSERT_EQ(48, res4->val);
   FreeBinaryTree(root4);
 }
+
+TEST_F(LowestCommonAncestorTest, lowestCommonAncestor3) {
+  std::vector<int> nums1 = {3, 5, 6, -1, -1, 2, 7, -1, -1, 4, -1, -1, 1, 0, -1, -1, 8, -1, -1};
+  TreeNode<int>* root1 = ToBinaryTree(nums1);
+  TreeNode<int>* res1 = exec->lowestCommonAncestor3(root1, root1->left, root1->right);
+  ASSERT_EQ(3, res1->val);
+  FreeBinaryTree(root1);
+
+  std::vector<int> nums2 = {3, 5, 6, -1, -1, 2, 7, -1, -1, 4, -1, -1, 1, 0, -1, -1, 8, -1, -1};
+  TreeNode<int>* root2 = ToBinaryTree(nums2);
+  TreeNode<int>* res2 = exec->lowestCommonAncestor3(root2, root2->left, root2->left->right->left);
+  ASSERT_EQ(5, res2->val);
+  FreeBinaryTree(root2);
+
+  std::vector<int> nums3 = {1, 2, -1, -1, -1};
+  TreeNode<int>* root3 = ToBinaryTree(nums3);
+  TreeNode<int>* res3 = exec->lowestCommonAncestor3(root3, root3, root3->left);
+  ASSERT_EQ(1, res3->val);
+  FreeBinaryTree(root3);
+
+  std::vector<int> nums4 = {37, -34, -1, -100, -1, -1, -48, -101, -1, -1, 48, -54, -71, -1, -1, -22, -1, 8, -1, -1, -1};
+  TreeNode<int>* root4 = ToBinaryTree(nums4);
+  TreeNode<int>* res4 = exec->lowestCommonAncestor3(root4, root4->right->right, root4->right->right->left->left);
+  ASSERT_EQ(48, res4->val);
+  FreeBinaryTree(root4);
+}
 }  // namespace tree
 }  // namespace algo
