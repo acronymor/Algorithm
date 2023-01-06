@@ -18,5 +18,6 @@ namespace algo {
  * @defgroup insert-sort 插入排序
  * @defgroup backtracking 回溯算法
  * @defgroup dynamic-programming 动态规划
+ * @defgroup greedy 贪心
  */
 }  // namespace algo
