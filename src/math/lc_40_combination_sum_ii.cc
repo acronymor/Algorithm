@@ -17,14 +17,14 @@ class CombineSumIITest : public ::testing::Test {
 TEST_F(CombineSumIITest, combine) {
   std::vector<int> nums1 = {10, 1, 2, 7, 6, 1, 5};
   std::vector<std::vector<int>> res1 = exec->combineSum(nums1, 8);
-  ASSERT_EQ(2, res1[0][0]);
-  ASSERT_EQ(2, res1[0][1]);
-  ASSERT_EQ(3, res1[0][2]);
-  ASSERT_EQ(7, res1[1][0]);
+  ASSERT_EQ(1, res1[0][0]);
+  ASSERT_EQ(1, res1[0][1]);
+  ASSERT_EQ(6, res1[0][2]);
+  ASSERT_EQ(1, res1[1][0]);
 
   std::vector<int> nums2 = {2, 5, 2, 1, 2};
   std::vector<std::vector<int>> res2 = exec->combineSum(nums2, 5);
-  ASSERT_EQ(0, res2.size());
+  ASSERT_EQ(2, res2.size());
 }
 
 }  // namespace math

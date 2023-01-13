@@ -37,7 +37,7 @@ class CanJumpII {
    * @ingroup backtracking
    */
   int jump(std::vector<int>& nums) {
-    int cur = nums[0], next = cur;
+    int cur = 0, next = 0;
     int res = 0;
 
     for (int i = 0; i < nums.size() - 1; i++) {

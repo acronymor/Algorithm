@@ -13,7 +13,7 @@ namespace array {
 namespace {
 class Queue {
  public:
-  int pop(int value) {
+  void pop(int value) {
     if (!queues.empty() && value == queues.front()) {
       queues.pop_front();
     }

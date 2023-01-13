@@ -43,6 +43,6 @@ class SearchBST {
 
     return root;
   }
-}
+};
 }  // namespace tree
 }  // namespace algo

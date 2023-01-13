@@ -69,8 +69,6 @@ function build() {
 }
 
 function test() {
-  build
-
   if [ -z ${1} ]; then
     cmd="make test"
   else
