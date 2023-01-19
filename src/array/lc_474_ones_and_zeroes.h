@@ -40,7 +40,7 @@ class FindMaxForm {
    */
   int solve(std::vector<std::string>& strs, int m, int n) {
     std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
-    for (std::string str : strs) {
+    for (const std::string& str : strs) {
       int oneNum = 0, zeroNum = 0;
       for (char c : str) {
         c == '0' ? zeroNum++ : oneNum++;
