@@ -37,7 +37,6 @@ function clone() {
   # run_cmd "${cmd}"
 }
 
-
 function doc() {
   local cmd="cd ${bin}"
   run_cmd "${cmd}"
@@ -70,6 +69,9 @@ function build() {
 
 function test() {
   if [ -z ${1} ]; then
+    cmd="cd ${algo_build_dir}"
+    run_cmd "${cmd}"
+
     cmd="make test"
   else
     cmd="${algo_build_dir}/src/${1}"

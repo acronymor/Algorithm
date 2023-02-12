@@ -28,7 +28,7 @@ namespace array {
  * 输入: nums = [1,3,5,6], target = 7
  * 输出: 4
  *
- * @see [leetcode-704](https://leetcode.cn/problems/binary-search/)
+ * @see [leetcode-35](https://leetcode.cn/problems/search-insert-position/)
  */
 
 class SearchInsertPosition {

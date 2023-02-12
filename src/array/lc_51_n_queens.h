@@ -4,14 +4,14 @@
 
 /**
  * @namespace array
- * @brief 螺旋矩阵
+ * @brief N 皇后
  */
 
 namespace algo {
 namespace array {
 
 /**
- * @brief 螺旋矩阵
+ * @brief N 皇后
  *
  * @details
  * 按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。
@@ -26,7 +26,7 @@ namespace array {
  * 输入：n = 1
  * 输出：[["Q"]]
  *
- * @see [leetcode-54](https://leetcode.cn/problems/spiral-matrix/)
+ * @see [leetcode-51](https://leetcode.cn/problems/n-queens/)
  */
 
 class NQueens {

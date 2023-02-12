@@ -41,15 +41,50 @@ class FindTargetSumWays {
   /**
    *  @ingroup dynamic-programming
    */
-  int solve2(std::vector<int>& nums, int t) {
+  int solve1(std::vector<int>& nums, int t) {
     int sum = std::accumulate(nums.begin(), nums.end(), 0);
-    int target = (sum - t) / 2;
+    int target = (sum + t) / 2;
 
-    if (target < 0 || (sum - t) % 2 != 0) {
+    if (target < 0 || (sum + t) % 2 != 0) {
       return 0;
     }
 
-    std::vector<int> dp(nums.size(), 0);
+    std::vector<std::vector<int>> dp(nums.size(), std::vector<int>(target + 1, 0));
+    /*
+     * dp[0][0] = 1 不把数字放入到大小为0的背包里面，这种情况算一种组合，所以赋值为 1
+     * nums[0] == 0 是一种特殊情况
+     * dp[0][0] 可以表示为 将 nums[0] 不放入大小为 0 的背包的和将 nums[0] 放入到大小为 0 的背包中，所以需要赋值为 2
+     */
+    dp[0][0] = 1;
+    if (nums[0] <= target) {
+      dp[0][nums[0]] = nums[0] == 0 ? dp[0][0] + 1 : 1;
+    }
+
+    for (int i = 1; i < nums.size(); i++) {
+      for (int j = 0; j <= target; j++) {
+        if (nums[i] > j) {
+          dp[i][j] = dp[i - 1][j];
+        } else {
+          dp[i][j] = dp[i - 1][j] + dp[i - 1][j - nums[i]];
+        }
+      }
+    }
+
+    return dp[nums.size() - 1][target];
+  }
+
+  /**
+   *  @ingroup dynamic-programming
+   */
+  int solve2(std::vector<int>& nums, int t) {
+    int sum = std::accumulate(nums.begin(), nums.end(), 0);
+    int target = (t + sum) / 2;
+
+    if (target < 0 || (t + sum) % 2 != 0) {
+      return 0;
+    }
+
+    std::vector<int> dp(target + 1, 0);
 
     dp[0] = 1;
     for (int i = 0; i < nums.size(); i++) {
