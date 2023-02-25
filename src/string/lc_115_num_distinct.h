@@ -2,7 +2,7 @@
 #include <vector>
 
 /**
- * @namespace array
+ * @namespace string
  * @brief 不同的子序列
  */
 
@@ -36,10 +36,10 @@ class NumDistinct {
   int solve(const std::string& s, const std::string& t) {
     std::vector<std::vector<uint64_t>> dp(s.size() + 1, std::vector<uint64_t>(t.size() + 1, 0));
 
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 0; i <= s.size(); i++) {
       dp[i][0] = 1;
     }
-    for (int j = 1; j < t.size(); j++) {
+    for (int j = 1; j <= t.size(); j++) {
       dp[0][j] = 0;
     }
 
