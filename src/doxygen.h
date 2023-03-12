@@ -9,6 +9,7 @@ namespace algo {
  * @defgroup monotonic-queue 单调队列
  * @defgroup queue 队列
  * @defgroup heap-priority-queue 优先队列/堆
+ * @defgroup prefix-sum 前缀和
  * @defgroup hash-table 哈希表
  * @defgroup kmp KMP
  * @defgroup bubble-sort 冒泡排序
