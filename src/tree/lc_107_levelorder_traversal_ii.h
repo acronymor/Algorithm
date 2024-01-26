@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <algorithm>
 
 #include "common.h"
 

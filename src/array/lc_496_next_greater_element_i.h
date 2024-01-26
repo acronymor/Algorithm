@@ -5,7 +5,7 @@
 
 /**
  * @namespace array
- * @brief 盛最多水的容器
+ * @brief 下一个更大元素 I
  */
 
 namespace algo {

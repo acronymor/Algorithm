@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <stack>
+#include <vector>
 
 namespace algo {
 namespace array {

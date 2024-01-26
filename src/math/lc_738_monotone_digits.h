@@ -10,7 +10,7 @@
 namespace algo {
 namespace math {
 /**
- * @brief 快乐数
+ * @brief 单调递增的数字
  *
  * @details
  * 当且仅当每个相邻位数上的数字 x 和 y 满足 x <= y 时，我们称这个整数是单调递增的。

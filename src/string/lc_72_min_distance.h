@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdint>
+#include <algorithm>
 
 /**
  * @namespace string

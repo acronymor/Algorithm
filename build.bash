@@ -50,7 +50,7 @@ function doc() {
 
 ################################################
 
-algo_build_parallel=8
+algo_build_parallel=24
 algo_build_dir=${bin}/build
 
 ################################################

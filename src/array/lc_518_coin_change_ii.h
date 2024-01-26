@@ -35,7 +35,7 @@ namespace array {
  * [leetcode-518](https://leetcode.cn/problems/coin-change-ii/)
  */
 
-class CoinChange {
+class CoinChangeII {
  public:
   /**
    * @ingroup dynamic-programming
@@ -45,16 +45,9 @@ class CoinChange {
     dp[0] = 1;
 
     for (int i = 0; i < coins.size(); i++) {
-      for (int j = 0; j <= amount; j++) {
-        if (j >= coins[i]) {
-          dp[j] += dp[j - coins[i]];
-        }
+      for (int j = coins[i]; j <= amount; j++) {
+        dp[j] += dp[j - coins[i]];
       }
-
-      for (int j = 0; j < dp.size(); j++) {
-        std::cout << dp[j] << " ";
-      }
-      std::cout << std::endl;
     }
 
     return dp[amount];
