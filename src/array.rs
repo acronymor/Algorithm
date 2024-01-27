@@ -1,1 +1,2 @@
 mod lc_704_binary_search;
+mod lc_27_remove_element;
