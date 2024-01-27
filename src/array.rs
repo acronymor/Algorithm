@@ -1,2 +1,3 @@
 mod lc_704_binary_search;
 mod lc_27_remove_element;
+mod lc_35_search_insert_position;
