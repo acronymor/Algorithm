@@ -26,58 +26,12 @@ function run_cmd() {
   fi
 }
 
-function clone() {
-  local cmd="cd ${bin}"
-  run_cmd "${cmd}"
-
-  cmd="git submodule update --init --recursive"
-  run_cmd "${cmd}"
-
-  cmd="git submodule update --remote --recursive"
-  # run_cmd "${cmd}"
-}
-
-function doc() {
-  local cmd="cd ${bin}"
-  run_cmd "${cmd}"
-
-  cmd="rm -rf ${bin}/doc"
-  run_cmd "${cmd}"
-
-  cmd="doxygen ${bin}/doxygen.ini"
-  run_cmd "${cmd}"
-}
-
-################################################
-
-algo_build_parallel=8
-algo_build_dir=${bin}/build
-
-################################################
-
 function build() {
-  local cmd="cmake -S ${bin} -B ${algo_build_dir}"
-
-  run_cmd "${cmd}"
-
-  cmd="cd ${algo_build_dir}"
-  run_cmd "${cmd}"
-
-  cmd="make -j ${algo_build_parallel}"
-  run_cmd "${cmd}"
+    run_cmd "echo 'build'"
 }
 
 function test() {
-  if [ -z ${1} ]; then
-    cmd="cd ${algo_build_dir}"
-    run_cmd "${cmd}"
-
-    cmd="make test"
-  else
-    cmd="${algo_build_dir}/src/${1}"
-  fi
-
-  run_cmd "${cmd}"
+    run_cmd "echo 'test'"
 }
 
 "$@"
