@@ -28,7 +28,7 @@ package array
  * [leetcode-518](https://leetcode.cn/problems/coin-change-ii/)
  */
 
-func change(amount int, coins []int) int {
+func change1(amount int, coins []int) int {
 	var dp [][]int = make([][]int, len(coins))
 	for i := 0; i < len(coins); i++ {
 		dp[i] = make([]int, amount+1)
@@ -55,4 +55,20 @@ func change(amount int, coins []int) int {
 	}
 
 	return dp[len(coins)-1][amount]
+}
+
+func change2(amount int, coins []int) int {
+	var dp []int = make([]int, amount+1)
+	dp[0] = 1
+	for i := 0; i < len(coins); i++ {
+		for j := 0; j <= amount; j++ {
+			if coins[i] > j {
+				dp[j] = dp[j]
+			} else {
+				dp[j] += dp[j-coins[i]]
+			}
+		}
+	}
+
+	return dp[amount]
 }
