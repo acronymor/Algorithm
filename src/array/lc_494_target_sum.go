@@ -26,7 +26,7 @@ package array
  * @see [leetcode-494](https://leetcode.cn/problems/target-sum/)
  */
 
-func findTargetSumWays(nums []int, target int) int {
+func findTargetSumWays1(nums []int, target int) int {
 	var sumVal = 0
 	for _, num := range nums {
 		sumVal += num
@@ -60,4 +60,30 @@ func findTargetSumWays(nums []int, target int) int {
 	}
 
 	return dp[len(nums)-1][bagSize]
+}
+
+func findTargetSumWays2(nums []int, target int) int {
+	var sumVal = 0
+	for _, num := range nums {
+		sumVal += num
+	}
+
+	var bagSize int = (sumVal + target) / 2
+	if bagSize < 0 || (sumVal+target)%2 != 0 {
+		return 0
+	}
+
+	var dp []int = make([]int, bagSize+1)
+	dp[0] = 1
+	for i := 0; i < len(nums); i++ {
+		for j := bagSize; j >= 0; j-- {
+			if nums[i] > j {
+				dp[j] = dp[j]
+			} else {
+				dp[j] = dp[j] + dp[j-nums[i]]
+			}
+		}
+	}
+
+	return dp[bagSize]
 }
