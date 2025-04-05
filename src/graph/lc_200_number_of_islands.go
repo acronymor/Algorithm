@@ -53,7 +53,7 @@ func numIslands1(grid [][]byte) int {
 
 		for _, dir := range directions {
 			x := i + dir[0]
-			y := i + dir[1]
+			y := j + dir[1]
 
 			dfs(x, y)
 		}
@@ -73,6 +73,46 @@ func numIslands1(grid [][]byte) int {
 }
 
 func numIslands2(grid [][]byte) int {
+	var visited [][]bool = make([][]bool, len(grid))
+	for i, _ := range grid {
+		visited[i] = make([]bool, len(grid[i]))
+	}
+
+	var directions [][]int = [][]int{{0, -1}, {0, 1}, {-1, 0}, {1, 0}}
+	var dfs func(i, j int)
+
+	dfs = func(i, j int) {
+		visited[i][j] = true
+		for _, dir := range directions {
+			x := i + dir[0]
+			y := j + dir[1]
+
+			if x < 0 || x >= len(grid) || y < 0 || y >= len(grid[x]) {
+				continue
+			}
+
+			if visited[x][y] || grid[x][y] == '0' {
+				continue
+			}
+
+			dfs(x, y)
+		}
+	}
+
+	var res int = 0
+	for i := 0; i < len(grid); i++ {
+		for j := 0; j < len(grid[i]); j++ {
+			if !visited[i][j] && grid[i][j] == '1' {
+				dfs(i, j)
+				res++
+			}
+		}
+	}
+
+	return res
+}
+
+func numIslands3(grid [][]byte) int {
 	var visited [][]bool = make([][]bool, len(grid))
 	for i, _ := range grid {
 		visited[i] = make([]bool, len(grid[i]))
