@@ -1,0 +1,40 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Go
+
+on:
+  push:
+    branches: [ "go" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          cache: false
+          go-version-file: 'src/go.mod'
+
+      - name: Build
+        working-directory: src
+        run: |
+          go mod tidy
+          go version
+
+      - name: Test
+        working-directory: src
+        run: |
+          pwd
+          go test -v ./math
+          go test -v ./string
+          go test -v ./array
+          go test -v ./list
+          go test -v ./tree
+          go test -v ./graph
+          go test -v ./algo
+          go test -v ./stack
+          go test -v ./queue
+          go test -v ./other
