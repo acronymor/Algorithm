@@ -25,7 +25,7 @@ package string
 type Stack []byte
 
 func (s *Stack) push(x byte) {
-	*s = append((*s), x)
+	*s = append(*s, x)
 }
 
 func (s *Stack) pop() {

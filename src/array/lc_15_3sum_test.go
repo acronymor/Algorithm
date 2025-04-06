@@ -21,6 +21,6 @@ func TestThreeSum2(t *testing.T) {
 
 	nums = []int{-1, 0, 1, 2, -1, -4}
 	res = threeSum2(nums)
-	assert.ElementsMatch(t, res[0], []int{-1, 0, 1})
-	assert.ElementsMatch(t, res[1], []int{-1, -1, 2})
+	assert.ElementsMatch(t, res[0], []int{-1, -1, 2})
+	assert.ElementsMatch(t, res[1], []int{-1, 0, 1})
 }

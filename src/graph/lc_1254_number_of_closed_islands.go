@@ -21,7 +21,7 @@ package graph
 
 func closedIsland(grid [][]int) int {
 	var visited [][]bool = make([][]bool, len(grid))
-	for i, _ := range grid {
+	for i := range grid {
 		visited[i] = make([]bool, len(grid[i]))
 	}
 
