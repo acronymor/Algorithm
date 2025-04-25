@@ -19,22 +19,20 @@ jobs:
           go-version-file: 'src/go.mod'
 
       - name: Build
-        working-directory: src
         run: |
           go mod tidy
           go version
 
       - name: Test
-        working-directory: src
         run: |
           pwd
-          go test -v ./math
-          go test -v ./string
-          go test -v ./array
-          go test -v ./list
-          go test -v ./tree
-          go test -v ./graph
-          go test -v ./algo
-          go test -v ./stack
-          go test -v ./queue
-          go test -v ./other
+          go test -v src/math/*
+          go test -v src/string/*
+          go test -v src/array/*
+          go test -v src/list/*
+          go test -v src/tree/*
+          go test -v src/graph/*
+          go test -v src/algo/*
+          go test -v src/stack/*
+          go test -v src/queue/*
+          go test -v src/other/*
