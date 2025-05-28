@@ -2,6 +2,8 @@ package other
 
 import "testing"
 
-func TestPrintLetterAndNumber(t *testing.T) {
-	printLetterAndNumber()
+func BenchmarkPrintLetterAndNumber(t *testing.B) {
+	for i := 0; i < t.N; i++ {
+		printLetterAndNumber()
+	}
 }
