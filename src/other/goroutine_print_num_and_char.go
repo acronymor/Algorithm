@@ -5,38 +5,47 @@ import (
 	"sync"
 )
 
-func printNumber(ch chan bool, wg *sync.WaitGroup) {
-	defer wg.Done()
-	numbers := []int{1, 2, 3, 4, 5}
-
-	for _, num := range numbers {
-		<-ch
-		fmt.Print(num, " ")
-		ch <- true
-	}
-}
-
-func printLetter(ch chan bool, wg *sync.WaitGroup) {
-	ch <- true
-
-	defer wg.Done()
-	letters := []string{"a", "b", "c", "d", "e"}
-
-	for _, letter := range letters {
-		<-ch
-		fmt.Print(letter, " ")
-		ch <- true
-	}
-}
-
 func printLetterAndNumber() {
-	ch := make(chan bool, 1)
-	var wg sync.WaitGroup
+	chN := make(chan bool, 1)
+	chC := make(chan bool, 1)
+	defer close(chN)
+	defer close(chC)
+
+	wg := sync.WaitGroup{}
 	wg.Add(2)
 
-	go printLetter(ch, &wg)
-	go printNumber(ch, &wg)
+	res := make(chan any)
+	chN <- true
 
-	wg.Wait()
-	close(ch)
+	go func() {
+		defer wg.Done()
+		var nums []int = []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+		for _, num := range nums {
+			<-chN
+			res <- num
+			chC <- true
+		}
+	}()
+
+	go func() {
+		defer wg.Done()
+		var letters []byte = []byte{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'}
+
+		for _, letter := range letters {
+			<-chC
+			res <- string(letter)
+			chN <- true
+		}
+	}()
+
+	go func() {
+		wg.Wait()
+		close(res)
+	}()
+
+	for item := range res {
+		fmt.Printf("%v ", item)
+	}
+	fmt.Println()
 }
