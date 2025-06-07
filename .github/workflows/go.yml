@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           cache: false
-          go-version-file: 'src/go.mod'
+          go-version-file: 'go.mod'
 
       - name: Build
         run: |
