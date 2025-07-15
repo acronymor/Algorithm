@@ -21,7 +21,19 @@ package array
  * @see [leetcode-55](https://leetcode.cn/problems/jump-game/)
  */
 
-func canJump(nums []int) bool {
+func canJump1(nums []int) bool {
+	var next = 0
+	for i := 0; i < len(nums); i++ {
+		if i > next {
+			return false
+		}
+		next = max(next, nums[i]+i)
+	}
+
+	return true
+}
+
+func canJump2(nums []int) bool {
 	var maxStep = 0
 	for i := 0; i <= maxStep; i++ {
 		maxStep = max(nums[i]+i, maxStep)
